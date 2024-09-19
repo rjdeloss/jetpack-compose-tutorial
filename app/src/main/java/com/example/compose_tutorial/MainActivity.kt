@@ -3,6 +3,7 @@ package com.example.compose_tutorial
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -19,7 +20,7 @@ class MainActivity : ComponentActivity() {
             ComposetutorialTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Greeting("Android")
+                    Greeting("Rafi")
                 }
             }
         }
@@ -27,9 +28,13 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
+fun MessageCard(name: String) {
+    Text(text = "Moda Sucka $name")
+}
+@Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello World",
+        text = "Hello $name!",
         modifier = modifier
     )
 }
@@ -38,6 +43,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     ComposetutorialTheme {
-        Greeting("Android")
+        Column {
+            Greeting("Rafi")
+            MessageCard("Steve")
+        }
     }
 }
